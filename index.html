@@ -231,6 +231,134 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/08/15/%E7%BB%9F%E8%AE%A1%E8%A7%86%E8%A7%92%E4%B8%8B%E7%9A%84%E6%95%B0%E6%8D%AE%E9%9A%90%E7%A7%81%E4%BF%9D%E6%8A%A4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Li's rambling">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/08/15/%E7%BB%9F%E8%AE%A1%E8%A7%86%E8%A7%92%E4%B8%8B%E7%9A%84%E6%95%B0%E6%8D%AE%E9%9A%90%E7%A7%81%E4%BF%9D%E6%8A%A4/" itemprop="url">统计视角下的数据隐私保护--1</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-08-15T17:02:18+08:00">
+                2021-08-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>进入信息时代后，由于个人数据产生的速度和体量增加，个人数据的隐私保护问题受到了很大的关注，当我们在日常生活中谈论隐私保护的时候，往往是说要保护我们的数据不被泄露，这虽然是隐私的保护的内容，不过这主要涉及信息安全的理论，统计学在数据隐私中的研究方向并不在此。</p>
+<p>那么统计学又能如何对数据隐私贡献自己独特的视角呢？按照权威的定义，统计学是一门收集数据和分析数据的科学与艺术，所以对于数据隐私，统计这门学科大体上可以贡献的角度有两方面：如何使用一定的方法来在保护隐私的前提下收集数据，以及如何对数据的隐私泄露问题进行定量的分析。</p>
+<p>下面我想来介绍统计学中一个年代较早的对数据隐私进行保护的方法。</p>
+<h4 id="Evasive-Answer-Bias"><a href="#Evasive-Answer-Bias" class="headerlink" title="Evasive Answer Bias"></a>Evasive Answer Bias</h4><p>要介绍统计如何在保护隐私的前提下收集数据，首先我们需要阐明这样做的一个意义：它有效的解决了问卷调查中的回避偏差问题。</p>
+<p>回避偏差描述的是这样的一个问题：在问卷调查中，受访者可能由于担心自己的受访数据会被泄露从而不信任问卷人，从而在一些敏感话题的回答上有意的去隐瞒真实情况。这就会导致通过问卷调查得到的数据真实性存疑，在利用这些数据进行分析后也可能得到效用较低甚至错误的结论，所以如何在收集信息的时候就能做到保护隐私，是统计学家可以贡献方法的地方。</p>
+<p>当然，并不是说一个有偏差的数据就无法用来进行统计分析了，我们完全可以假定有一个概率p，受访者会在这个概率下撒谎，然后在这个假定下进行统计推断，这当然是可行的，但问题就在于我们并不能知道这个撒谎的概率p，所以这样就无法进行推断。</p>
+<p>不过早在1965年，便有一位名为Warner的学者提出了一个精彩的解决思路，在保护了调查者隐私的同时，也收集到了有用的数据，下面就来介绍他的天才想法。</p>
+<h4 id="Randomized-Response"><a href="#Randomized-Response" class="headerlink" title="Randomized Response"></a>Randomized Response</h4><p>Warner的想法很naive：既然受访者害怕自己真实想法被泄露是一个很难改变的事实，那么能不能使用什么方法使得受访者给采访者一个受保护的回答呢，比如在他的回答上加上一个噪声，并且是一个已知分布的噪声？这听起来是可行的，采访者给受访者一个分布已知的随机变量，只有受访者知道这个变量的数值，并且把这个随机的数值加到自己的回答中，至此，一个绝妙的想法就诞生了，Warner将它命名为Randomized Response。</p>
+<h4 id="具体实现"><a href="#具体实现" class="headerlink" title="具体实现"></a>具体实现</h4><p>从简单的情况开始，我们考虑一个回答只有是和否的调查问题，我们的调查目标是知道回答为是的人数占比，在调查前，先提供受访者一个不均匀两面硬币，朝上的概率和朝下的概率分别为p和1-p，这个硬币两面分别写着是和否，在每个问题中，我们先让受访者投一次硬币，硬币的朝向只有受访者自己知道，然后受访者只需要回答采访者这个硬币朝向所写的答案和自己真实的答案是否一样。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/08/09/differential-privacy-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -302,7 +430,11 @@
       
         
           
-            <p>差分隐私是由Dwork于21世纪初提出来的概念，</p>
+            <p>数据隐私是由Dwork于21世纪初提出来的概念，进入信息时代后，个人隐私保护问题受到了很大的关注，但是当我们在日常生活中谈论隐私保护的时候，往往是说要保护我们的信息不被泄露，这当然是隐私的保护的内容，不过这主要涉及信息安全的理论，差分隐私的研究对象并不在此，为了明白差分隐私这个概念我们首先需要了解差分隐私所需解决的实际问题。</p>
+<h4 id="问题背景"><a href="#问题背景" class="headerlink" title="问题背景"></a>问题背景</h4><p>Netflix是一个知名的美国流媒体公司（很喜欢的Martin Scorsese导演有部电影爱尔兰人，就是由Netflix投资拍摄的）。为了提升自己用户推荐系统，Neflix举办了一个名为Netflix Prize的有奖网络竞赛，为参赛者公开了一个关于用户历史观影和个人信息的数据集，当然了，为了保护用户的隐私，Netflix用数字编号代替每条数据的用户名，想通过匿名化的方式来保护用户隐私。这次竞赛的奖金非常丰厚，最终大奖有100w美元，看到这个数字你可能下意识的想问：还举办嘛？</p>
+<p>虽然暴富的机会就在眼前，但可惜的是，由于用户的起诉，Netflix不得不取消了后续的竞赛，原来有两位科学家看到Netflix的数据后，他们脑海中想到了一个绝妙的idea，不过这个idea并不是如何改进推荐系统，而是如何对这个比赛的数据集进行去匿名化。通过比对IMBD上的用户评分和Netflix的公开数据中的用户打分确定了这些匿名数据的归属人是谁，那么这样一来匿名化就失去了效果，也就是说可以通过这个数据集获取个人信息，用户的隐私终究被泄露了。</p>
+<h4 id="反思"><a href="#反思" class="headerlink" title="反思"></a>反思</h4><p>这个事件反应了一个问题：那就是在发布公开数据的时候，会对用户的数据进行匿名化处理来保护隐私，但还是可以通过一些外部数据库的查询来对去隐私化。</p>
+<p>那么如何更好的发布数据来保护用户的隐私就是差分隐私所要研究的问题，到这里我们仍然没有解释什么是差分隐私，因为首先需要一个具体的隐私保护算法来解释如何对用户隐私进行保护。</p>
 
           
         
@@ -513,7 +645,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
